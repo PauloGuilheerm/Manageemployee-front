@@ -6,10 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "gen:types": "node scripts/generate-types.cjs",
-    "predev": "npm run gen:types",
-    "prebuild": "npm run gen:types"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.16",
