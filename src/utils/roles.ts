@@ -1,9 +1,9 @@
-export type AppRole = 'Director' | 'Leader' | 'Employee'
+import { ROLES } from "./enums";
 
 export const can = {
-    create: (role: AppRole) => role === 'Director' || role === 'Leader',
-    edit: (role: AppRole) => role === 'Director' || role === 'Leader',
-    remove: (role: AppRole) => role === 'Director',
+    create: (role: number) => role === ROLES.DIRECTOR || role === ROLES.LEADER,
+    edit: (role: number) => role === ROLES.DIRECTOR || role === ROLES.LEADER,
+    remove: (role: number) => role === ROLES.DIRECTOR,
     read: () => true,
 }
 

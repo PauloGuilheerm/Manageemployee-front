@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { getToken } from '../utils/token'
+import toast from 'react-hot-toast';
 
 export const API_BASE_URL = "http://localhost:5208";
 
@@ -22,11 +23,13 @@ http.interceptors.request.use((config) => {
 http.interceptors.response.use(
     (res) => res,
     (error) => {
-        if (error?.response?.status === 401) {
-            // Opcional: disparar evento global para logout
-            // window.dispatchEvent(new CustomEvent('unauthorized'))
+        const status = error?.response?.status
+        const data = error?.response?.data
+        const message = data?.message || data?.title || error?.message || 'Erro inesperado'
+        if (status === 401) {
+            toast.error('Não autorizado')
         }
-        return Promise.reject(error)
+        return Promise.reject({ status, message, data })
     }
 )
 

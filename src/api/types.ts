@@ -1,6 +1,3 @@
-// ATENÇÃO: Arquivo gerado automaticamente por scripts/generate-types.cjs
-// Execute npm run gen:types para atualizar.
-
 export type Role = "Director" | "Leader" | "Employee";
 export type PhoneType = "Mobile" | "Home" | "Work";
 
@@ -13,10 +10,12 @@ export interface Employee {
   id: string;
   firstName: string;
   lastName: string;
+  fullName: string;
   email: string;
   docNumber: string;
   role: Role;
   phones: Phone[];
+  birthDate: Date;
 }
 
 export interface PaginatedResponse<T> {
